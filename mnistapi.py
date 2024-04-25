@@ -22,13 +22,16 @@ def process_and_predict(model: Sequential, data: list) -> str:
 	prediction = np.argmax(model.predict(data.reshape(1, 784) ), axis=-1)
 	return str(prediction)
 	
+def format_image(img):
+	img = img.resize((28, 28))
+	img = img.convert("L")
+	img_array = np.array(img).flatten().tolist()
+	return img_array
+	
 @app.post('/predict')
 async def predict_digit(image: UploadFile = File(...)):
 	contents = await image.read()
 	img = Image.open(BytesIO(contents))
-	img = img.resize((28, 28))
-	img = img.convert("L")
-	img_array = np.array(img).flatten().tolist()
+	img_array = format_image(img)
 	prediction = process_and_predict(mnist_model, img_array)
-	print(prediction)
 	return {"digit": prediction}
