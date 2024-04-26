@@ -11,7 +11,7 @@ This repository contains the code for Assignment 6 of CS5830. The task was to bu
 ## Installation
 1. Clone the Git Repository: `git clone https://github.com/MelpakkamPradeep/CS5830_A6.git`
 2. Navigate to the downloaded repository.
-3. Install the dependencies: `conda create --name <env name> --file requirements.txt`
+3. Install the dependencies: `conda create --name <env name>`. Then `conda install pip` and `pip install -r requirements.txt`.
 
 ## Usage
 1. Navigate to the cloned repository, and begin the Uvicorn server using `uvicorn mnistapi:app --reload`.
