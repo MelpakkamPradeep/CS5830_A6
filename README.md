@@ -8,3 +8,12 @@ This repository contains the code for Assignment 6 of CS5830. The task was to bu
 5. `sample_images/`		:	Directory with some custom images. These images are not part of the MNIST dataset. They have been drawn by the author, to test the `FastAPI` app.
 6. `requirements.txt`		:	Text file with the Python libraries and dependencies for this project. Can be installed using `conda`.
 
+## Installation
+1. Clone the Git Repository: `git clone https://github.com/MelpakkamPradeep/CS5830_A6.git`
+2. Navigate to the downloaded repository.
+3. Install the dependencies: `conda create --name <env name> --file requirements.txt`
+
+## Usage
+1. Navigate to the cloned repository, and begin the Uvicorn server using `uvicorn mnistapi:app --reload`.
+2. Upload the required image in the `/predict` function in the Swagger UI of the server.
+3. The output is displayed as `{'digit': _predn_}`
